@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrigonoQuiz - Media Pembelajaran, Ringkasan Materi, Kuis Interaktif & Bank Soal Trigonometri SMA/SMK/MA (Kelas X-XII)">
+    <meta name="theme-color" content="#1E3A8A">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="TrigonoQuiz - Kuis Interaktif & Bank Soal Trigonometri SMA/SMK/MA">
+    <meta property="og:description" content="Media Pembelajaran, Ringkasan Materi, Kuis Interaktif & Bank Soal Trigonometri SMA/SMK/MA (Kelas X-XII)">
+    <meta property="og:type" content="website">
+    <title>TrigonoQuiz - Kuis Interaktif & Bank Soal Trigonometri SMA/SMK/MA</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Crect width='24' height='24' rx='6' fill='%231E3A8A'/%3E%3Cpath d='M5 19H19L5 5V19Z' stroke='%23F97316' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #2563EB;
+            --accent: #F97316;
+            --bg: #F8FAFC;
+            --card: #FFFFFF;
+            --text: #1E293B;
+            --text-muted: #64748B;
+            --success: #16A34A;
+            --success-bg: #DCFCE7;
+            --danger: #DC2626;
+            --danger-bg: #FEE2E2;
+            --purple: #7C3AED;
+            --purple-bg: #F3E8FF;
+            --border: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            max-width: 840px;
+            width: 100%;
+        }
+
+        .brand-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .brand span {
+            font-size: 0.78rem;
+            opacity: 0.88;
+            display: block;
+            font-weight: 400;
+        }
+
+        main {
+            width: 100%;
+            max-width: 840px;
+            padding: 20px 16px 40px;
+            flex: 1;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+            border: 1px solid var(--border);
+        }
+
+        .hero-icon {
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 14px;
+            display: block;
+        }
+
+        .text-center { text-align: center; }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 6px;
+            margin-bottom: 22px;
+            line-height: 1.55;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        @media (min-width: 600px) {
+            .form-row-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px 13px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            outline: none;
+            background: white;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: var(--primary-light);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 72px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-sm {
+            width: auto;
+            padding: 7px 12px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #EA580C;
+        }
+
+        .btn-purple {
+            background-color: var(--purple);
+            color: white;
+        }
+
+        .btn-purple:hover {
+            background-color: #6D28D9;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #B91C1C;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background-color: #F1F5F9;
+        }
+
+        .top-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .top-toolbar .btn {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .level-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: #F1F5F9;
+            padding: 6px;
+            border-radius: 12px;
+        }
+
+        .level-btn {
+            flex: 1;
+            padding: 9px 6px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .level-btn.active {
+            background: var(--card);
+            color: var(--primary);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .topic-card {
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--card);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .topic-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 58, 138, 0.1);
+        }
+
+        .topic-card.enrichment-card {
+            border-color: #DDD6FE;
+            background: linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 100%);
+        }
+
+        .topic-card.enrichment-card:hover {
+            border-color: var(--purple);
+            box-shadow: 0 6px 15px rgba(124, 58, 237, 0.14);
+        }
+
+        .topic-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            background: #EFF6FF;
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .topic-badge.purple {
+            background: var(--purple-bg);
+            color: var(--purple);
+        }
+
+        .grade-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: #FFF7ED;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .topic-card h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .topic-card.enrichment-card h3 {
+            color: var(--purple);
+        }
+
+        .topic-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .topic-footer-meta {
+            margin-top: 10px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        .material-box {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+            font-size: 0.84rem;
+            line-height: 1.55;
+        }
+
+        .material-box h4 {
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .material-box ul {
+            padding-left: 18px;
+            color: var(--text);
+        }
+
+        /* Halaman Ringkasan Materi Lengkap */
+        .summary-section {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 16px;
+            background: #FFFFFF;
+        }
+
+        .summary-section h3 {
+            color: var(--primary);
+            font-size: 1.02rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .formula-pill {
+            background: #EFF6FF;
+            border-left: 4px solid var(--primary-light);
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        .summary-example {
+            background: #FFF7ED;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.83rem;
+            color: #7C2D12;
+            margin-top: 8px;
+        }
+
+        /* Halaman Kelola Bank Soal (CRUD) */
+        .crud-list-item {
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 12px;
+            background: #FFFFFF;
+        }
+
+        .crud-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .crud-item-q {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.45;
+        }
+
+        .crud-item-ans {
+            font-size: 0.8rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .crud-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .timer-pill {
+            background: #FFF7ED;
+            color: var(--accent);
+            border: 1px solid #FFEDD5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timer-pill.warning {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border-color: #FECACA;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: #E2E8F0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 18px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-light);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .visual-box {
+            background: #F8FAFC;
+            border: 1px dashed #CBD5E1;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question-text {
+            font-size: 1.02rem;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            padding: 13px 15px;
+            background: var(--card);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.93rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.15s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--primary-light);
+            background: #EFF6FF;
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+        }
+
+        .option-prefix {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #F1F5F9;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .option-btn.correct {
+            background: var(--success-bg);
+            border-color: var(--success);
+            color: #14532D;
+        }
+
+        .option-btn.correct .option-prefix {
+            background: var(--success);
+            color: white;
+        }
+
+        .option-btn.wrong {
+            background: var(--danger-bg);
+            border-color: var(--danger);
+            color: #7F1D1D;
+        }
+
+        .option-btn.wrong .option-prefix {
+            background: var(--danger);
+            color: white;
+        }
+
+        .feedback-box {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 12px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback-box.correct {
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+        }
+
+        .feedback-box.wrong {
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+        }
+
+        .feedback-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .feedback-box.correct .feedback-title { color: var(--success); }
+        .feedback-box.wrong .feedback-title { color: var(--danger); }
+
+        .feedback-explanation {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .score-circle {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            background: #EFF6FF;
+            border: 6px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 16px auto;
+        }
+
+        .score-number {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .stat-item {
+            background: #F8FAFC;
+            padding: 12px 8px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-val {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .stat-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .action-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="brand-left">
+                <div class="brand-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 20H20L4 4V20Z" stroke="#F97316" stroke-width="2.5" stroke-linejoin="round"/>
+                        <path d="M4 15H9V20" stroke="#FFFFFF" stroke-width="1.8"/>
+                        <text x="11" y="18" fill="#FFFFFF" font-size="7" font-weight="bold">θ</text>
+                    </svg>
+                </div>
+                <div>
+                    <h1>TrigonoQuiz</h1>
+                    <span>Kuis Interaktif & Bank Soal Trigonometri • SMA / SMK / MA (Kelas X – XII)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HALAMAN 1: LANDING PAGE -->
+        <section id="screen-home" class="screen active">
+            <div class="card text-center">
+                <svg class="hero-icon" viewBox="0 0 100 100" fill="none">
+                    <rect width="100" height="100" rx="22" fill="#EFF6FF"/>
+                    <polygon points="22,78 78,78 22,25" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="4" stroke-linejoin="round"/>
+                    <polyline points="22,64 36,64 36,78" fill="none" stroke="#1E3A8A" stroke-width="3"/>
+                    <path d="M62,78 A16,16 0 0,1 67,67" fill="none" stroke="#F97316" stroke-width="3.5"/>
+                    <text x="53" y="72" fill="#F97316" font-size="13" font-weight="bold">θ</text>
+                </svg>
+                <h2>Selamat Datang di TrigonoQuiz!</h2>
+                <p class="subtitle">Media latihan, ringkasan materi, dan evaluasi interaktif trigonometri untuk jenjang <strong>SMA, SMK, dan MA (Kelas X–XII)</strong> dilengkapi fitur pengelolaan bank soal mandiri oleh guru.</p>
+
+                <div class="form-group">
+                    <label for="student-name">Nama Lengkap Peserta Didik / Guru</label>
+                    <input type="text" id="student-name" placeholder="Masukkan nama lengkap..." autocomplete="off">
+                </div>
+
+                <div class="form-row form-row-2">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="student-school-type">Jenjang Satuan Pendidikan</label>
+                        <select id="student-school-type">
+                            <option value="SMA">SMA (Sekolah Menengah Atas)</option>
+                            <option value="SMK">SMK (Sekolah Menengah Kejuruan)</option>
+                            <option value="MA">MA (Madrasah Aliyah)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="student-grade">Tingkat Kelas</label>
+                        <select id="student-grade">
+                            <option value="Kelas X">Kelas X (Fase E)</option>
+                            <option value="Kelas XI">Kelas XI (Fase F)</option>
+                            <option value="Kelas XII">Kelas XII (Fase F Lanjutan)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-rombel">Rombongan Belajar / Jurusan (Opsional)</label>
+                    <input type="text" id="student-rombel" placeholder="Contoh: X-1 / XI TKJ / XII IPA 2" autocomplete="off">
+                </div>
+
+                <button class="btn btn-primary" onclick="goToTopics()">
+                    Masuk ke Menu Utama →
+                </button>
+            </div>
+        </section>
+
+        <!-- HALAMAN 2: MENU TOPIK, MATERI, PENGAYAAN & KELOLA SOAL -->
+        <section id="screen-topics" class="screen">
+            <div class="card">
+                <h2 style="font-size: 1.2rem; margin-bottom: 4px;">Halo, <span id="display-name" style="color: var(--primary);">Siswa</span>!</h2>
+                <p class="subtitle" style="margin-bottom: 14px;" id="display-identity">SMA • Kelas X</p>
+
+                <!-- Toolbar Ringkasan Materi & Kelola Soal -->
+                <div class="top-toolbar">
+                    <button class="btn btn-accent" onclick="openSummaryPage()">
+                        📖 Buku Ringkasan Materi Lengkap
+                    </button>
+                    <button class="btn btn-outline" onclick="openManageQuestions()">
+                        ⚙️ Kelola Bank Soal (Tambah / Edit / Hapus)
+                    </button>
+                </div>
+
+                <label>1. Pilih Tingkat Kesulitan (Batas Waktu per Soal):</label>
+                <div class="level-selector">
+                    <button class="level-btn active" data-level="mudah" onclick="selectLevel('mudah', this)">Mudah (3 Menit)</button>
+                    <button class="level-btn" data-level="sedang" onclick="selectLevel('sedang', this)">Sedang (2 Menit)</button>
+                    <button class="level-btn" data-level="susah" onclick="selectLevel('susah', this)">Susah (1 Menit)</button>
+                </div>
+
+                <label>2. Pilih Modul Kuis Reguler & Soal Pengayaan HOTS:</label>
+                <div class="topic-grid" id="topic-cards-container">
+                    <!-- Diisi dinamis oleh JS agar jumlah soal ter-update real-time -->
+                </div>
+
+                <button class="btn btn-outline" onclick="switchScreen('screen-home')">
+                    ← Ubah Identitas / Jenjang / Kelas
+                </button>
+            </div>
+        </section>
+
+        <!-- HALAMAN BARU A: RINGKASAN MATERI LENGKAP -->
+        <section id="screen-summary" class="screen">
+            <div class="card">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+                    <div>
+                        <span class="topic-badge">Bahan Ajar & Referensi</span>
+                        <h2 style="font-size: 1.25rem; margin-top:4px;">Ringkasan Materi Trigonometri Lengkap</h2>
+                    </div>
+                    <button class="btn btn-outline btn-sm" onclick="switchScreen('screen-topics')">← Kembali ke Menu</button>
+                </div>
+                <p class="subtitle" style="margin-bottom:16px;">Pelajari rangkuman rumus inti dan contoh penerapannya di bawah ini sebelum memulai kuis atau latihan pengayaan.</p>
+
+                <div class="summary-section">
+                    <h3>1. Perbandingan Trigonometri Segitiga Siku-siku <span class="grade-tag">Kelas X–XII</span></h3>
+                    <div class="formula-pill">
+                        • <strong>sin θ</strong> = Sisi Depan / Sisi Miring &nbsp;&nbsp;|&nbsp;&nbsp; <strong>csc θ</strong> = 1 / sin θ = Miring / Depan<br>
+                        • <strong>cos θ</strong> = Sisi Samping / Sisi Miring &nbsp;|&nbsp; <strong>sec θ</strong> = 1 / cos θ = Miring / Samping<br>
+                        • <strong>tan θ</strong> = Sisi Depan / Sisi Samping &nbsp;|&nbsp; <strong>cot θ</strong> = 1 / tan θ = Samping / Depan
+                    </div>
+                    <div class="summary-example">
+                        <strong>Contoh Aplikasi:</strong> Tinggi menara dengan sudut elevasi θ dari jarak mendatar <em>d</em> dapat dihitung menggunakan <strong>t = d · tan θ + tinggi pengamat</strong>.
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>2. Sudut Istimewa & Konversi Radian <span class="grade-tag">Kelas X–XII</span></h3>
+                    <div class="formula-pill">
+                        • <strong>Konversi:</strong> 180° = π rad &nbsp;→&nbsp; Derajat ke Radian: dikali <strong>(π / 180°)</strong> &nbsp;|&nbsp; Radian ke Derajat: dikali <strong>(180° / π)</strong><br>
+                        • <strong>sin (0°, 30°, 45°, 60°, 90°):</strong> 0, &nbsp;½, &nbsp;½√2, &nbsp;½√3, &nbsp;1<br>
+                        • <strong>cos (0°, 30°, 45°, 60°, 90°):</strong> 1, &nbsp;½√3, &nbsp;½√2, &nbsp;½, &nbsp;0<br>
+                        • <strong>tan (0°, 30°, 45°, 60°, 90°):</strong> 0, &nbsp;⅓√3, &nbsp;1, &nbsp;√3, &nbsp;Tak Terdefinisi
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>3. Relasi Sudut & Kuadran I – IV <span class="grade-tag">Kelas X–XII</span></h3>
+                    <div class="formula-pill">
+                        • <strong>Kuadran I (0°–90°):</strong> Semua (+)<br>
+                        • <strong>Kuadran II (90°–180°):</strong> sin & csc (+) &nbsp;→&nbsp; sin(180° - α) = sin α, &nbsp;cos(180° - α) = -cos α<br>
+                        • <strong>Kuadran III (180°–270°):</strong> tan & cot (+) &nbsp;→&nbsp; tan(180° + α) = tan α, &nbsp;sin(180° + α) = -sin α<br>
+                        • <strong>Kuadran IV (270°–360°):</strong> cos & sec (+) &nbsp;→&nbsp; cos(360° - α) = cos α, &nbsp;cos(-α) = cos α
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>4. Aturan Sinus, Aturan Kosinus & Luas Segitiga <span class="grade-tag">Kelas X–XI</span></h3>
+                    <div class="formula-pill">
+                        • <strong>Aturan Sinus:</strong> a / sin A = b / sin B = c / sin C<br>
+                        • <strong>Aturan Kosinus:</strong> a² = b² + c² - 2bc · cos A &nbsp;&nbsp;|&nbsp;&nbsp; cos A = (b² + c² - a²) / (2bc)<br>
+                        • <strong>Luas Segitiga Sembarang:</strong> L = ½ · a · b · sin C
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>5. Rumus Jumlah & Selisih Dua Sudut <span class="grade-tag">Kelas XI–XII</span></h3>
+                    <div class="formula-pill">
+                        • <strong>sin(α + β)</strong> = sin α cos β + cos α sin β &nbsp;&nbsp;|&nbsp;&nbsp; <strong>sin(α - β)</strong> = sin α cos β - cos α sin β<br>
+                        • <strong>cos(α + β)</strong> = cos α cos β - sin α sin β &nbsp;&nbsp;|&nbsp;&nbsp; <strong>cos(α - β)</strong> = cos α cos β + sin α sin β<br>
+                        • <strong>tan(α ± β)</strong> = (tan α ± tan β) / (1 ∓ tan α · tan β)
+                    </div>
+                    <div class="summary-example">
+                        <strong>Tips Cepat:</strong> Sudut 15° = 45° - 30°, sudut 75° = 45° + 30°, dan sudut 105° = 60° + 45°.
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>6. Identitas, Sudut Rangkap & Persamaan Trigonometri <span class="grade-tag">Kelas XI–XII</span></h3>
+                    <div class="formula-pill">
+                        • <strong>Identitas Pythagoras:</strong> sin²x + cos²x = 1 &nbsp;|&nbsp; 1 + tan²x = sec²x &nbsp;|&nbsp; 1 + cot²x = csc²x<br>
+                        • <strong>Sudut Rangkap:</strong> sin 2x = 2 sin x cos x &nbsp;|&nbsp; cos 2x = cos²x - sin²x = 1 - 2sin²x = 2cos²x - 1<br>
+                        • <strong>Persamaan:</strong> sin x = sin α → x = α + k·360° atau x = (180° - α) + k·360°
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>7. Grafik & Fungsi Trigonometri <span class="grade-tag">Kelas XI–XII</span></h3>
+                    <div class="formula-pill">
+                        • Untuk fungsi <strong>y = A sin(k(x ± α)) + c</strong> atau <strong>y = A cos(k(x ± α)) + c</strong>:<br>
+                        • <strong>Amplitudo</strong> = |A| &nbsp;|&nbsp; <strong>Periode</strong> = 360° / k (atau 2π / k) &nbsp;|&nbsp; <strong>Maks</strong> = |A| + c, <strong>Min</strong> = -|A| + c
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="switchScreen('screen-topics')">
+                    Selesai Membaca • Kembali ke Menu Kuis →
+                </button>
+            </div>
+        </section>
+
+        <!-- HALAMAN BARU B: KELOLA BANK SOAL (TAMBAH, EDIT, HAPUS) -->
+        <section id="screen-manage" class="screen">
+            <div class="card">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+                    <div>
+                        <span class="topic-badge">Panel Guru / Admin</span>
+                        <h2 style="font-size: 1.25rem; margin-top:4px;">Kelola Bank Soal (Tambah, Edit & Hapus)</h2>
+                    </div>
+                    <button class="btn btn-outline btn-sm" onclick="switchScreen('screen-topics')">← Kembali ke Menu</button>
+                </div>
+                <p class="subtitle" style="margin-bottom:16px;">Tambahkan soal baru, ubah butir soal yang ada, atau hapus soal pada setiap modul (tersimpan otomatis di browser perangkat Anda).</p>
+
+                <!-- Pilih Modul yang Dikelola -->
+                <div class="form-row form-row-2" style="align-items:end; background:#F8FAFC; padding:14px; border-radius:12px; border:1px solid var(--border);">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="manage-topic-select">Pilih Modul Materi:</label>
+                        <select id="manage-topic-select" onchange="renderCrudList()">
+                            <option value="segitiga">Modul 1: Perbandingan Segitiga Siku-siku</option>
+                            <option value="istimewa">Modul 2: Sudut Istimewa & Radian</option>
+                            <option value="kuadran">Modul 3: Relasi Sudut & Kuadran I–IV</option>
+                            <option value="aturan_segitiga">Modul 4: Aturan Sinus, Kosinus & Luas</option>
+                            <option value="jumlah_selisih">Modul 5: Rumus Jumlah & Selisih Sudut</option>
+                            <option value="identitas_persamaan">Modul 6: Identitas & Persamaan Trigonometri</option>
+                            <option value="grafik_fungsi">Modul 7: Grafik & Fungsi Trigonometri</option>
+                            <option value="pengayaan">Modul Pengayaan: Soal HOTS & Olimpiade</option>
+                        </select>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn btn-primary" onclick="openQuestionForm()">+ Tambah Soal Baru</button>
+                        <button class="btn btn-outline btn-sm" onclick="resetDefaultQuestions()" title="Kembalikan soal bawaan pabrik">Reset Default</button>
+                    </div>
+                </div>
+
+                <!-- Form Tambah / Edit Soal -->
+                <div id="crud-form-box" style="display:none; background:#EFF6FF; border:1.5px solid var(--primary-light); border-radius:14px; padding:18px; margin-bottom:20px;">
+                    <h3 id="crud-form-title" style="font-size:1.05rem; color:var(--primary); margin-bottom:12px;">Tambah Soal Baru</h3>
+                    <input type="hidden" id="edit-question-index" value="-1">
+
+                    <div class="form-group">
+                        <label for="input-q-text">Teks Pertanyaan Soal *</label>
+                        <textarea id="input-q-text" placeholder="Tuliskan pertanyaan soal trigonometri di sini..."></textarea>
+                    </div>
+
+                    <div class="form-row form-row-2">
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label for="input-opt-a">Pilihan A (Jawaban Benar) *</label>
+                            <input type="text" id="input-opt-a" placeholder="Masukkan jawaban yang benar">
+                        </div>
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label for="input-opt-b">Pilihan B (Pengecoh 1) *</label>
+                            <input type="text" id="input-opt-b" placeholder="Masukkan pilihan pengecoh 1">
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row-2">
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label for="input-opt-c">Pilihan C (Pengecoh 2) *</label>
+                            <input type="text" id="input-opt-c" placeholder="Masukkan pilihan pengecoh 2">
+                        </div>
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label for="input-opt-d">Pilihan D (Pengecoh 3) *</label>
+                            <input type="text" id="input-opt-d" placeholder="Masukkan pilihan pengecoh 3">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-q-exp">Pembahasan / Langkah Penyelesaian *</label>
+                        <textarea id="input-q-exp" placeholder="Tuliskan rumus dan langkah penyelesaiannya..."></textarea>
+                    </div>
+
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-primary" onclick="saveQuestion()">💾 Simpan Soal</button>
+                        <button class="btn btn-outline" onclick="closeQuestionForm()">Batal</button>
+                    </div>
+                </div>
+
+                <!-- Daftar Soal pada Modul Terpilih -->
+                <div style="margin-bottom:10px; font-weight:600; font-size:0.92rem;" id="crud-list-header">
+                    Daftar Soal Tersimpan:
+                </div>
+                <div id="crud-questions-list"></div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 3: ARENA KUIS INTERAKTIF -->
+        <section id="screen-quiz" class="screen">
+            <div class="card">
+                <div class="quiz-header">
+                    <span id="question-counter" style="color: var(--primary);">Soal 1 dari 6</span>
+                    <div id="timer-box" class="timer-pill">
+                        ⏱ <span id="timer-text">03:00</span>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+
+                <!-- Ringkasan Rumus Singkat Topik -->
+                <div id="topic-summary-box" class="material-box"></div>
+
+                <!-- Visualisasi SVG Dinamis -->
+                <div id="visual-container" class="visual-box"></div>
+
+                <!-- Teks Soal -->
+                <div id="question-text" class="question-text">Memuat soal...</div>
+
+                <!-- Pilihan Jawaban -->
+                <div id="options-container" class="options-list"></div>
+
+                <!-- Panel Pembahasan Otomatis -->
+                <div id="feedback-box" class="feedback-box">
+                    <div id="feedback-title" class="feedback-title"></div>
+                    <div id="feedback-explanation" class="feedback-explanation"></div>
+                    <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()">
+                        Soal Berikutnya →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 4: RINGKASAN SKOR & HASIL AKHIR -->
+        <section id="screen-result" class="screen">
+            <div class="card text-center">
+                <span class="topic-badge" id="result-topic-badge">Hasil Evaluasi</span>
+                <h2 id="result-greeting" style="font-size: 1.3rem; margin-top: 8px;">Kerja Bagus!</h2>
+                <p id="result-student-info" class="subtitle" style="margin-bottom: 8px;">Nama Siswa • SMA Kelas X</p>
+
+                <div class="score-circle">
+                    <span id="final-score" class="score-number">100</span>
+                    <span class="score-label">SKOR AKHIR</span>
+                </div>
+
+                <p id="result-predicate" style="font-weight: 700; color: var(--success); font-size: 1.02rem;">
+                    Predikat: Sangat Baik (Melampaui KKTP)
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div id="stat-correct" class="stat-val" style="color: var(--success);">6</div>
+                        <div class="stat-desc">Benar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="stat-wrong" class="stat-val" style="color: var(--danger);">0</div>
+                        <div class="stat-desc">Salah</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="stat-accuracy" class="stat-val" style="color: var(--primary);">100%</div>
+                        <div class="stat-desc">Akurasi</div>
+                    </div>
+                </div>
+
+                <div class="action-group">
+                    <button class="btn btn-accent" onclick="restartCurrentQuiz()">
+                        ↻ Ulangi Modul Ini (Soal Diacak Ulang)
+                    </button>
+                    <button class="btn btn-primary" onclick="switchScreen('screen-topics')">
+                        Pilih Modul Materi Lain
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        TrigonoQuiz v1.2 • Program 10.000 Karya Digital Guru Dinas Pendidikan Provinsi Sulawesi Selatan 2026
+    </footer>
+
+    <script>
+        // --- METADATA MODUL ---
+        const modulesMeta = [
+            { key: "segitiga", badge: "Modul 1", grade: "Kelas X – XII", title: "Perbandingan Segitiga Siku-siku", desc: "Konsep dasar Sin, Cos, Tan, Sec, Csc, Cot serta aplikasi tinggi dan jarak.", isEnrichment: false },
+            { key: "istimewa", badge: "Modul 2", grade: "Kelas X – XII", title: "Sudut Istimewa & Radian", desc: "Konversi derajat-radian dan operasi nilai sudut 0°, 30°, 45°, 60°, 90°.", isEnrichment: false },
+            { key: "kuadran", badge: "Modul 3", grade: "Kelas X – XII", title: "Relasi Sudut & Kuadran I–IV", desc: "Aturan tanda kuadran, sudut berelasi (180°±α, 360°-α), dan sudut negatif.", isEnrichment: false },
+            { key: "aturan_segitiga", badge: "Modul 4", grade: "Kelas X – XI", title: "Aturan Sinus, Kosinus & Luas", desc: "Penerapan pada segitiga sembarang, bidang teknik SMK, dan navigasi.", isEnrichment: false },
+            { key: "jumlah_selisih", badge: "Modul 5", grade: "Kelas XI – XII", title: "Rumus Jumlah & Selisih Sudut", desc: "Penerapan sin(α±β), cos(α±β), tan(α±β) untuk sudut 15°, 75°, 105°.", isEnrichment: false },
+            { key: "identitas_persamaan", badge: "Modul 6", grade: "Kelas XI – XII", title: "Identitas & Persamaan Trigonometri", desc: "Identitas Pythagoras, himpunan penyelesaian sin x = sin α, dan sudut rangkap.", isEnrichment: false },
+            { key: "grafik_fungsi", badge: "Modul 7", grade: "Kelas XI – XII", title: "Grafik & Fungsi Trigonometri", desc: "Menentukan amplitudo, periode, nilai maksimum/minimum fungsi f(x) = A sin(kx).", isEnrichment: false },
+            { key: "pengayaan", badge: "Pengayaan HOTS", grade: "Tantangan Lanjutan", title: "Soal Pengayaan & Analisis HOTS", desc: "Soal penalaran tingkat tinggi, kombinasi lintas konsep, pembuktian, dan aplikasi kompleks.", isEnrichment: true }
+        ];
+
+        // --- RINGKASAN MATERI PER MODUL (UNTUK ARENA KUIS) ---
+        const topicSummaries = {
+            segitiga: `<h4>📘 Ringkasan Konsep: Perbandingan Segitiga Siku-siku</h4>
+                       <ul>
+                         <li><strong>sin θ</strong> = depan / miring &nbsp;|&nbsp; <strong>cos θ</strong> = samping / miring &nbsp;|&nbsp; <strong>tan θ</strong> = depan / samping</li>
+                         <li><strong>csc θ</strong> = 1 / sin θ &nbsp;|&nbsp; <strong>sec θ</strong> = 1 / cos θ &nbsp;|&nbsp; <strong>cot θ</strong> = 1 / tan θ</li>
+                       </ul>`,
+            istimewa: `<h4>📘 Ringkasan Konsep: Sudut Istimewa & Radian</h4>
+                       <ul>
+                         <li>Konversi: <strong>π rad = 180°</strong> (sehingga 1 rad ≈ 57,3° dan 30° = π/6 rad).</li>
+                         <li>Nilai sin (0°, 30°, 45°, 60°, 90°): <strong>0, ½, ½√2, ½√3, 1</strong> (cos berkebalikan urutan).</li>
+                       </ul>`,
+            kuadran: `<h4>📘 Ringkasan Konsep: Relasi Sudut & Kuadran</h4>
+                      <ul>
+                        <li><strong>K-I (0°–90°):</strong> Semua (+) | <strong>K-II (90°–180°):</strong> Sin & Csc (+) | <strong>K-III (180°–270°):</strong> Tan & Cot (+) | <strong>K-IV (270°–360°):</strong> Cos & Sec (+)</li>
+                        <li>Sudut negatif: <strong>sin(-α) = -sin α</strong>, <strong>cos(-α) = cos α</strong>, <strong>tan(-α) = -tan α</strong>.</li>
+                      </ul>`,
+            aturan_segitiga: `<h4>📘 Ringkasan Konsep: Aturan Sinus, Kosinus & Luas Segitiga</h4>
+                              <ul>
+                                <li><strong>Aturan Sinus:</strong> a / sin A = b / sin B = c / sin C</li>
+                                <li><strong>Aturan Kosinus:</strong> a² = b² + c² - 2bc · cos A &nbsp;|&nbsp; <strong>Luas Δ:</strong> L = ½ · a · b · sin C</li>
+                              </ul>`,
+            jumlah_selisih: `<h4>📘 Ringkasan Konsep: Rumus Jumlah & Selisih Dua Sudut</h4>
+                             <ul>
+                               <li><strong>sin(α ± β)</strong> = sin α · cos β ± cos α · sin β</li>
+                               <li><strong>cos(α ± β)</strong> = cos α · cos β ∓ sin α · sin β &nbsp;<em>(tanda berlawanan)</em></li>
+                               <li><strong>tan(α ± β)</strong> = (tan α ± tan β) / (1 ∓ tan α · tan β)</li>
+                             </ul>`,
+            identitas_persamaan: `<h4>📘 Ringkasan Konsep: Identitas & Persamaan Trigonometri</h4>
+                                  <ul>
+                                    <li><strong>Identitas Dasar:</strong> sin²x + cos²x = 1 &nbsp;|&nbsp; 1 + tan²x = sec²x &nbsp;|&nbsp; sin 2x = 2 sin x cos x</li>
+                                    <li><strong>Persamaan Sinus:</strong> sin x = sin α → x = α + k·360° atau x = (180° - α) + k·360°</li>
+                                  </ul>`,
+            grafik_fungsi: `<h4>📘 Ringkasan Konsep: Grafik & Fungsi Trigonometri</h4>
+                            <ul>
+                              <li>Untuk fungsi <strong>y = A sin(kx ± b) + c</strong> atau <strong>y = A cos(kx ± b) + c</strong>:</li>
+                              <li><strong>Amplitudo</strong> = |A| &nbsp;|&nbsp; <strong>Periode</strong> = 360° / k (atau 2π / k) &nbsp;|&nbsp; <strong>Nilai Maks</strong> = |A| + c, <strong>Min</strong> = -|A| + c</li>
+                            </ul>`,
+            pengayaan: `<h4>🏆 Mode Pengayaan HOTS (Higher Order Thinking Skills)</h4>
+                        <ul>
+                          <li>Gunakan kombinasi identitas trigonometri, rumus jumlah/selisih sudut, serta sifat kuadran dan aljabar.</li>
+                          <li>Perhatikan batas interval sudut dan tanda positif/negatif di tiap kuadran dengan teliti!</li>
+                        </ul>`
+        };
+
+        // --- BANK SOAL BAWAAN (48 SOAL / 8 MODUL TERMASUK PENGAYAAN) ---
+        const defaultQuestionBank = {
+            segitiga: [
+                {
+                    q: "Perhatikan segitiga siku-siku di atas. Jika sisi depan sudut α adalah 3 cm dan sisi sampingnya 4 cm, berapakah nilai sin α?",
+                    svg: `<svg width="210" height="125" viewBox="0 0 210 125">
+                            <polygon points="40,100 160,100 40,20" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <polyline points="40,87 53,87 53,100" fill="none" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="16" y="65" font-size="12" fill="#1E293B" font-weight="bold">3 cm</text>
+                            <text x="90" y="117" font-size="12" fill="#1E293B" font-weight="bold">4 cm</text>
+                            <text x="128" y="94" font-size="13" fill="#F97316" font-weight="bold">α</text>
+                          </svg>`,
+                    options: ["3/5", "4/5", "3/4", "4/3"],
+                    answer: "3/5",
+                    explanation: "Sisi miring = √(3² + 4²) = √25 = 5 cm. Maka sin α = depan / miring = 3/5."
+                },
+                {
+                    q: "Pada segitiga siku-siku, diketahui cos β = 5/13. Berapakah nilai dari tan β?",
+                    svg: `<svg width="210" height="125" viewBox="0 0 210 125">
+                            <polygon points="40,100 165,100 40,20" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="105" y="55" font-size="12" fill="#1E293B" font-weight="bold">13</text>
+                            <text x="95" y="117" font-size="12" fill="#1E293B" font-weight="bold">5</text>
+                            <text x="132" y="94" font-size="13" fill="#F97316" font-weight="bold">β</text>
+                          </svg>`,
+                    options: ["12/5", "5/12", "12/13", "13/12"],
+                    answer: "12/5",
+                    explanation: "cos β = samping / miring = 5/13. Sisi depan = √(13² - 5²) = 12. Jadi tan β = depan / samping = 12/5."
+                },
+                {
+                    q: "Sebuah tangga sepanjang 6 meter bersandar pada dinding dan membentuk sudut 60° dengan lantai. Tinggi dinding yang dicapai ujung tangga adalah...",
+                    svg: `<svg width="200" height="120" viewBox="0 0 200 120">
+                            <line x1="50" y1="15" x2="50" y2="100" stroke="#64748B" stroke-width="3"/>
+                            <line x1="30" y1="100" x2="160" y2="100" stroke="#64748B" stroke-width="3"/>
+                            <line x1="50" y1="22" x2="135" y2="100" stroke="#F97316" stroke-width="3.5"/>
+                            <text x="98" y="58" font-size="12" fill="#1E3A8A" font-weight="bold">6 m</text>
+                            <text x="105" y="94" font-size="12" fill="#F97316" font-weight="bold">60°</text>
+                          </svg>`,
+                    options: ["3√3 meter", "3 meter", "6√3 meter", "3√2 meter"],
+                    answer: "3√3 meter",
+                    explanation: "sin 60° = tinggi / panjang tangga → ½√3 = t / 6 → t = 3√3 meter."
+                },
+                {
+                    q: "Seorang siswa SMK jurusan Teknik Sipil mengukur sudut elevasi puncak menara sebesar 45° dari jarak 20 meter. Jika tinggi alat pengukur 1,6 meter, tinggi menara tersebut adalah...",
+                    svg: `<svg width="210" height="120" viewBox="0 0 210 120">
+                            <rect x="145" y="20" width="16" height="80" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2"/>
+                            <line x1="35" y1="85" x2="145" y2="85" stroke="#94A3B8" stroke-dasharray="4" stroke-width="1.5"/>
+                            <line x1="35" y1="85" x2="145" y2="20" stroke="#F97316" stroke-width="2.5"/>
+                            <text x="65" y="79" font-size="11" fill="#F97316" font-weight="bold">45°</text>
+                            <text x="80" y="98" font-size="11" fill="#1E293B" font-weight="bold">20 m</text>
+                          </svg>`,
+                    options: ["21,6 meter", "20 meter", "18,4 meter", "20√2 meter"],
+                    answer: "21,6 meter",
+                    explanation: "tan 45° = x / 20 → 1 = x / 20 → x = 20 m. Tinggi total menara = 20 + 1,6 = 21,6 meter."
+                },
+                {
+                    q: "Jika diketahui tan θ = 8/15 dengan θ sudut lancip, maka nilai dari sec θ adalah...",
+                    svg: `<svg width="200" height="115" viewBox="0 0 200 115">
+                            <polygon points="40,95 160,95 40,20" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="22" y="62" font-size="12" fill="#1E293B" font-weight="bold">8</text>
+                            <text x="95" y="110" font-size="12" fill="#1E293B" font-weight="bold">15</text>
+                            <text x="130" y="89" font-size="13" fill="#F97316" font-weight="bold">θ</text>
+                          </svg>`,
+                    options: ["17/15", "17/8", "15/17", "8/17"],
+                    answer: "17/15",
+                    explanation: "Sisi miring = √(8² + 15²) = √289 = 17. Nilai sec θ = miring / samping = 17/15."
+                },
+                {
+                    q: "Pada segitiga ABC siku-siku di B, panjang AC = 10 cm dan sudut A = 30°. Panjang sisi BC adalah...",
+                    svg: `<svg width="200" height="115" viewBox="0 0 200 115">
+                            <polygon points="40,95 160,95 40,20" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="102" y="52" font-size="12" fill="#1E3A8A" font-weight="bold">10 cm</text>
+                            <text x="126" y="89" font-size="12" fill="#F97316" font-weight="bold">30°</text>
+                          </svg>`,
+                    options: ["5 cm", "5√3 cm", "5√2 cm", "10√3 cm"],
+                    answer: "5 cm",
+                    explanation: "Sisi BC berada di depan sudut A (30°), dan AC adalah sisi miring. sin 30° = BC / 10 → 1/2 = BC / 10 → BC = 5 cm."
+                }
+            ],
+            istimewa: [
+                {
+                    q: "Besar sudut 135° jika dinyatakan ke dalam satuan radian adalah...",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">135° = ... rad</text>
+                          </svg>`,
+                    options: ["¾π rad", "⅔π rad", "⅚π rad", "½π rad"],
+                    answer: "¾π rad",
+                    explanation: "135° × (π / 180°) = (135/180)π = ¾π rad (sama-sama dibagi 45)."
+                },
+                {
+                    q: "Berapakah hasil dari sin 30° + cos 60° - tan 45°?",
+                    svg: `<svg width="210" height="90" viewBox="0 0 210 90">
+                            <rect x="10" y="12" width="190" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="105" y="50" text-anchor="middle" font-size="14" fill="#1E3A8A" font-weight="bold">sin 30° + cos 60° - tan 45°</text>
+                          </svg>`,
+                    options: ["0", "1", "1/2", "-1"],
+                    answer: "0",
+                    explanation: "sin 30° = 1/2, cos 60° = 1/2, dan tan 45° = 1. Jadi 1/2 + 1/2 - 1 = 1 - 1 = 0."
+                },
+                {
+                    q: "Nilai dari cos (π/3) + sin (π/6) adalah...",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="15" fill="#9A3412" font-weight="bold">cos(π/3) + sin(π/6)</text>
+                          </svg>`,
+                    options: ["1", "√3", "½√3", "0"],
+                    answer: "1",
+                    explanation: "π/3 rad = 60° dan π/6 rad = 30°. Maka cos 60° + sin 30° = 1/2 + 1/2 = 1."
+                },
+                {
+                    q: "Hasil dari (sin 60° · cos 30°) + (cos 60° · sin 30°) adalah...",
+                    svg: `<svg width="220" height="90" viewBox="0 0 220 90">
+                            <rect x="10" y="12" width="200" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="110" y="50" text-anchor="middle" font-size="13" fill="#1E3A8A" font-weight="bold">sin 60° cos 30° + cos 60° sin 30°</text>
+                          </svg>`,
+                    options: ["1", "½√3", "1/2", "0"],
+                    answer: "1",
+                    explanation: "(½√3 · ½√3) + (1/2 · 1/2) = 3/4 + 1/4 = 4/4 = 1 (atau sin(60° + 30°) = sin 90° = 1)."
+                },
+                {
+                    q: "Jika sudut α lancip dan 2 cos α = √3, maka nilai tan α adalah...",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">2 cos α = √3 → tan α = ?</text>
+                          </svg>`,
+                    options: ["⅓√3", "√3", "1", "½√3"],
+                    answer: "⅓√3",
+                    explanation: "cos α = ½√3 → α = 30°. Maka tan 30° = ⅓√3."
+                },
+                {
+                    q: "Nilai dari tan 60° / sin 60° adalah...",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">tan 60° ÷ sin 60°</text>
+                          </svg>`,
+                    options: ["2", "1/2", "√3", "3"],
+                    answer: "2",
+                    explanation: "tan 60° = √3 dan sin 60° = ½√3. Maka √3 ÷ (½√3) = 2."
+                }
+            ],
+            kuadran: [
+                {
+                    q: "Pada Kuadran III (180° < θ < 270°), perbandingan trigonometri yang bernilai POSITIF adalah...",
+                    svg: `<svg width="150" height="115" viewBox="0 0 150 115">
+                            <line x1="75" y1="10" x2="75" y2="105" stroke="#94A3B8" stroke-width="2"/>
+                            <line x1="15" y1="58" x2="135" y2="58" stroke="#94A3B8" stroke-width="2"/>
+                            <rect x="25" y="63" width="45" height="36" rx="6" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5"/>
+                            <text x="47" y="85" text-anchor="middle" font-size="11" fill="#F97316" font-weight="bold">K-III</text>
+                          </svg>`,
+                    options: ["Tangen dan Kotangen", "Sinus dan Kosekan", "Kosinus dan Sekan", "Semua negatif"],
+                    answer: "Tangen dan Kotangen",
+                    explanation: "Di Kuadran III, koordinat x (-) dan y (-), sehingga tan = y/x bernilai positif (+) beserta kebalikannya (cot)."
+                },
+                {
+                    q: "Berapakah nilai dari sin 150° + cos 120°?",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="14" fill="#1E3A8A" font-weight="bold">sin 150° + cos 120°</text>
+                          </svg>`,
+                    options: ["0", "1", "-1", "1/2"],
+                    answer: "0",
+                    explanation: "sin 150° = sin(180°-30°) = +1/2. cos 120° = cos(180°-60°) = -cos 60° = -1/2. Jadi 1/2 + (-1/2) = 0."
+                },
+                {
+                    q: "Tentukan nilai dari cos 225°!",
+                    svg: `<svg width="150" height="115" viewBox="0 0 150 115">
+                            <circle cx="75" cy="58" r="42" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <line x1="75" y1="58" x2="45" y2="88" stroke="#F97316" stroke-width="2.5"/>
+                            <text x="26" y="98" font-size="11" fill="#F97316" font-weight="bold">225°</text>
+                          </svg>`,
+                    options: ["-½√2", "½√2", "-1/2", "1/2"],
+                    answer: "-½√2",
+                    explanation: "225° ada di Kuadran III (cos negatif). cos 225° = cos(180° + 45°) = -cos 45° = -½√2."
+                },
+                {
+                    q: "Nilai dari tan 315° + sin (-30°) adalah...",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="14" fill="#9A3412" font-weight="bold">tan 315° + sin(-30°)</text>
+                          </svg>`,
+                    options: ["-1,5", "-0,5", "0,5", "1,5"],
+                    answer: "-1,5",
+                    explanation: "tan 315° = -tan 45° = -1, dan sin(-30°) = -sin 30° = -0,5. Jadi -1 + (-0,5) = -1,5."
+                },
+                {
+                    q: "Diketahui sin α = -3/5 dan sudut α berada di Kuadran IV. Nilai dari tan α adalah...",
+                    svg: `<svg width="150" height="115" viewBox="0 0 150 115">
+                            <line x1="75" y1="10" x2="75" y2="105" stroke="#94A3B8" stroke-width="2"/>
+                            <line x1="15" y1="58" x2="135" y2="58" stroke="#94A3B8" stroke-width="2"/>
+                            <rect x="80" y="63" width="48" height="36" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+                            <text x="104" y="85" text-anchor="middle" font-size="11" fill="#16A34A" font-weight="bold">K-IV</text>
+                          </svg>`,
+                    options: ["-3/4", "3/4", "-4/3", "4/3"],
+                    answer: "-3/4",
+                    explanation: "Di Kuadran IV, tan bernilai negatif (-). Sisi depan = 3, miring = 5, samping = 4. Jadi tan α = -3/4."
+                },
+                {
+                    q: "Nilai dari cos 420° (sudut lebih dari satu putaran) adalah...",
+                    svg: `<svg width="190" height="90" viewBox="0 0 190 90">
+                            <rect x="10" y="12" width="170" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="95" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">cos 420° = ?</text>
+                          </svg>`,
+                    options: ["1/2", "½√3", "-1/2", "½√2"],
+                    answer: "1/2",
+                    explanation: "420° = 360° + 60°. Maka cos 420° = cos 60° = 1/2."
+                }
+            ],
+            aturan_segitiga: [
+                {
+                    q: "Pada segitiga ABC, diketahui sudut A = 30°, sudut B = 45°, dan panjang sisi a = 8 cm. Panjang sisi b adalah...",
+                    svg: `<svg width="210" height="120" viewBox="0 0 210 120">
+                            <polygon points="35,95 175,95 115,25" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="52" y="88" font-size="11" fill="#F97316" font-weight="bold">30°</text>
+                            <text x="142" y="88" font-size="11" fill="#F97316" font-weight="bold">45°</text>
+                            <text x="150" y="56" font-size="11" fill="#1E293B" font-weight="bold">a=8</text>
+                          </svg>`,
+                    options: ["8√2 cm", "4√2 cm", "8√3 cm", "16 cm"],
+                    answer: "8√2 cm",
+                    explanation: "Aturan Sinus: a / sin A = b / sin B → 8 / sin 30° = b / sin 45° → 8 / (1/2) = b / (½√2) → 16 = b / (½√2) → b = 8√2 cm."
+                },
+                {
+                    q: "Pada segitiga ABC, panjang sisi b = 6 cm, c = 8 cm, dan besar sudut A = 60°. Panjang sisi a adalah...",
+                    svg: `<svg width="210" height="120" viewBox="0 0 210 120">
+                            <polygon points="35,95 175,95 95,25" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="54" y="88" font-size="11" fill="#F97316" font-weight="bold">60°</text>
+                            <text x="52" y="55" font-size="11" fill="#1E293B" font-weight="bold">c=8</text>
+                            <text x="100" y="110" font-size="11" fill="#1E293B" font-weight="bold">b=6</text>
+                          </svg>`,
+                    options: ["2√13 cm", "10 cm", "√52 cm", "√148 cm"],
+                    answer: "2√13 cm",
+                    explanation: "Aturan Kosinus: a² = b² + c² - 2bc cos A = 6² + 8² - 2(6)(8)(1/2) = 36 + 64 - 48 = 52. Maka a = √52 = 2√13 cm."
+                },
+                {
+                    q: "Hitunglah luas segitiga PQR jika diketahui panjang sisi p = 10 cm, q = 12 cm, dan sudut R = 30°!",
+                    svg: `<svg width="200" height="110" viewBox="0 0 200 110">
+                            <polygon points="35,90 165,90 90,22" fill="#DCFCE7" stroke="#16A34A" stroke-width="2.5"/>
+                            <text x="55" y="83" font-size="11" fill="#14532D" font-weight="bold">30°</text>
+                            <text x="95" y="104" font-size="11" fill="#1E293B" font-weight="bold">12 cm</text>
+                            <text x="48" y="52" font-size="11" fill="#1E293B" font-weight="bold">10 cm</text>
+                          </svg>`,
+                    options: ["30 cm²", "60 cm²", "30√3 cm²", "15 cm²"],
+                    answer: "30 cm²",
+                    explanation: "Luas Δ = ½ · p · q · sin R = ½ · 10 · 12 · sin 30° = 60 · (1/2) = 30 cm²."
+                },
+                {
+                    q: "Dua buah kapal berlayar dari pelabuhan yang sama dengan arah membentuk sudut 60°. Jika kapal A menempuh jarak 5 km dan kapal B menempuh 8 km, jarak kedua kapal tersebut adalah...",
+                    svg: `<svg width="200" height="115" viewBox="0 0 200 115">
+                            <line x1="40" y1="90" x2="160" y2="90" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <line x1="40" y1="90" x2="105" y2="25" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <line x1="105" y1="25" x2="160" y2="90" stroke="#F97316" stroke-dasharray="4" stroke-width="2"/>
+                            <text x="65" y="83" font-size="11" fill="#F97316" font-weight="bold">60°</text>
+                          </svg>`,
+                    options: ["7 km", "√89 km", "9 km", "√129 km"],
+                    answer: "7 km",
+                    explanation: "d² = 5² + 8² - 2(5)(8) cos 60° = 25 + 64 - 80(1/2) = 89 - 40 = 49. Maka jarak d = √49 = 7 km."
+                },
+                {
+                    q: "Pada segitiga ABC diketahui panjang sisi a = 5 cm, b = 7 cm, dan c = 8 cm. Nilai cos B adalah...",
+                    svg: `<svg width="200" height="110" viewBox="0 0 200 110">
+                            <polygon points="35,90 165,90 95,22" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="95" y="104" font-size="11" fill="#1E293B" font-weight="bold">b=7</text>
+                            <text x="52" y="52" font-size="11" fill="#1E293B" font-weight="bold">c=8</text>
+                            <text x="135" y="52" font-size="11" fill="#1E293B" font-weight="bold">a=5</text>
+                          </svg>`,
+                    options: ["1/2", "1/4", "3/4", "1/5"],
+                    answer: "1/2",
+                    explanation: "cos B = (a² + c² - b²) / (2ac) = (25 + 64 - 49) / (2 · 5 · 8) = 40 / 80 = 1/2."
+                },
+                {
+                    q: "Sebuah pelat logam berbentuk segitiga sama sisi memiliki panjang sisi 10 cm. Luas pelat logam tersebut adalah...",
+                    svg: `<svg width="180" height="110" viewBox="0 0 180 110">
+                            <polygon points="40,90 140,90 90,15" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="82" y="104" font-size="11" fill="#1E293B" font-weight="bold">10 cm</text>
+                          </svg>`,
+                    options: ["25√3 cm²", "50√3 cm²", "25 cm²", "50 cm²"],
+                    answer: "25√3 cm²",
+                    explanation: "Segitiga sama sisi memiliki semua sudut 60°. Luas = ½ · 10 · 10 · sin 60° = 50 · (½√3) = 25√3 cm²."
+                }
+            ],
+            jumlah_selisih: [
+                {
+                    q: "Dengan menggunakan rumus selisih dua sudut sin(45° - 30°), tentukan nilai eksak dari sin 15°!",
+                    svg: `<svg width="215" height="90" viewBox="0 0 215 90">
+                            <rect x="10" y="12" width="195" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="107" y="50" text-anchor="middle" font-size="14" fill="#1E3A8A" font-weight="bold">sin 15° = sin(45° - 30°)</text>
+                          </svg>`,
+                    options: ["¼(√6 - √2)", "¼(√6 + √2)", "¼(√2 - √6)", "½(√3 - 1)"],
+                    answer: "¼(√6 - √2)",
+                    explanation: "sin(45° - 30°) = sin 45° cos 30° - cos 45° sin 30° = (½√2)(½√3) - (½√2)(½) = ¼√6 - ¼√2 = ¼(√6 - √2)."
+                },
+                {
+                    q: "Berapakah nilai eksak dari cos 75° dengan menguraikannya menjadi cos(45° + 30°)?",
+                    svg: `<svg width="215" height="90" viewBox="0 0 215 90">
+                            <rect x="10" y="12" width="195" height="66" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="107" y="50" text-anchor="middle" font-size="14" fill="#9A3412" font-weight="bold">cos 75° = cos(45° + 30°)</text>
+                          </svg>`,
+                    options: ["¼(√6 - √2)", "¼(√6 + √2)", "½(√6 - √2)", "-¼(√6 + √2)"],
+                    answer: "¼(√6 - √2)",
+                    explanation: "cos(45° + 30°) = cos 45° cos 30° - sin 45° sin 30° = (½√2)(½√3) - (½√2)(½) = ¼(√6 - √2)."
+                },
+                {
+                    q: "Sederhanakan bentuk: sin 40° · cos 20° + cos 40° · sin 20°",
+                    svg: `<svg width="235" height="90" viewBox="0 0 235 90">
+                            <rect x="10" y="12" width="215" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="117" y="50" text-anchor="middle" font-size="13" fill="#1E3A8A" font-weight="bold">sin 40° cos 20° + cos 40° sin 20°</text>
+                          </svg>`,
+                    options: ["½√3", "1/2", "½√2", "1"],
+                    answer: "½√3",
+                    explanation: "Gunakan rumus sin(α + β) = sin α cos β + cos α sin β. Maka sin(40° + 20°) = sin 60° = ½√3."
+                },
+                {
+                    q: "Hitunglah nilai dari: cos 50° · cos 5° + sin 50° · sin 5°",
+                    svg: `<svg width="235" height="90" viewBox="0 0 235 90">
+                            <rect x="10" y="12" width="215" height="66" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+                            <text x="117" y="50" text-anchor="middle" font-size="13" fill="#14532D" font-weight="bold">cos 50° cos 5° + sin 50° sin 5°</text>
+                          </svg>`,
+                    options: ["½√2", "1/2", "½√3", "0"],
+                    answer: "½√2",
+                    explanation: "Ingat rumus cos(α - β) = cos α cos β + sin α sin β. Maka cos(50° - 5°) = cos 45° = ½√2."
+                },
+                {
+                    q: "Diketahui tan α = 1/2 dan tan β = 1/3 (α dan β sudut lancip). Nilai dari tan(α + β) adalah...",
+                    svg: `<svg width="225" height="90" viewBox="0 0 225 90">
+                            <rect x="10" y="12" width="205" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="112" y="50" text-anchor="middle" font-size="14" fill="#1E3A8A" font-weight="bold">tan(α + β) = (tan α + tan β) / ...</text>
+                          </svg>`,
+                    options: ["1", "5/6", "1/6", "5/7"],
+                    answer: "1",
+                    explanation: "tan(α + β) = (1/2 + 1/3) / (1 - (1/2)(1/3)) = (5/6) / (1 - 1/6) = (5/6) / (5/6) = 1."
+                },
+                {
+                    q: "Diketahui sin α = 3/5 dan cos β = 12/13 dengan α dan β berada di Kuadran I. Nilai dari sin(α + β) adalah...",
+                    svg: `<svg width="215" height="90" viewBox="0 0 215 90">
+                            <rect x="10" y="12" width="195" height="66" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="107" y="50" text-anchor="middle" font-size="14" fill="#9A3412" font-weight="bold">sin α = 3/5, cos β = 12/13</text>
+                          </svg>`,
+                    options: ["56/65", "33/65", "63/65", "16/65"],
+                    answer: "56/65",
+                    explanation: "Di Kuadran I: sin α = 3/5 → cos α = 4/5; cos β = 12/13 → sin β = 5/13. Maka sin(α + β) = (3/5)(12/13) + (4/5)(5/13) = 36/65 + 20/65 = 56/65."
+                }
+            ],
+            identitas_persamaan: [
+                {
+                    q: "Bentuk sederhana dari (1 - cos²x) / sin x adalah...",
+                    svg: `<svg width="200" height="90" viewBox="0 0 200 90">
+                            <rect x="10" y="12" width="180" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="100" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">(1 - cos²x) / sin x</text>
+                          </svg>`,
+                    options: ["sin x", "cos x", "tan x", "csc x"],
+                    answer: "sin x",
+                    explanation: "Dari identitas sin²x + cos²x = 1, diperoleh 1 - cos²x = sin²x. Maka sin²x / sin x = sin x."
+                },
+                {
+                    q: "Himpunan penyelesaian dari persamaan sin x = 1/2 untuk 0° ≤ x ≤ 360° adalah...",
+                    svg: `<svg width="210" height="90" viewBox="0 0 210 90">
+                            <rect x="10" y="12" width="190" height="66" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="105" y="50" text-anchor="middle" font-size="14" fill="#9A3412" font-weight="bold">sin x = 1/2 (0° ≤ x ≤ 360°)</text>
+                          </svg>`,
+                    options: ["{30°, 150°}", "{30°, 330°}", "{60°, 120°}", "{30°, 210°}"],
+                    answer: "{30°, 150°}",
+                    explanation: "sin x = sin 30°. Untuk k=0: x₁ = 30° dan x₂ = 180° - 30° = 150°. Jadi HP = {30°, 150°}."
+                },
+                {
+                    q: "Jika sin x = 3/5 dan x sudut lancip, maka nilai dari sin 2x adalah...",
+                    svg: `<svg width="200" height="90" viewBox="0 0 200 90">
+                            <rect x="10" y="12" width="180" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="100" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">sin 2x = 2 sin x cos x</text>
+                          </svg>`,
+                    options: ["24/25", "12/25", "7/25", "6/5"],
+                    answer: "24/25",
+                    explanation: "Jika sin x = 3/5 (lancip), maka cos x = 4/5. Gunakan rumus sudut rangkap: sin 2x = 2(3/5)(4/5) = 24/25."
+                },
+                {
+                    q: "Bentuk identitas trigonometri yang ekuivalen dengan tan x · cos x adalah...",
+                    svg: `<svg width="200" height="90" viewBox="0 0 200 90">
+                            <rect x="10" y="12" width="180" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="100" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">tan x · cos x = ?</text>
+                          </svg>`,
+                    options: ["sin x", "1", "sec x", "cot x"],
+                    answer: "sin x",
+                    explanation: "Karena tan x = sin x / cos x, maka (sin x / cos x) · cos x = sin x."
+                },
+                {
+                    q: "Himpunan penyelesaian dari cos x = 1/2 untuk 0° ≤ x ≤ 360° adalah...",
+                    svg: `<svg width="210" height="90" viewBox="0 0 210 90">
+                            <rect x="10" y="12" width="190" height="66" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="105" y="50" text-anchor="middle" font-size="14" fill="#9A3412" font-weight="bold">cos x = 1/2 (0° ≤ x ≤ 360°)</text>
+                          </svg>`,
+                    options: ["{60°, 300°}", "{60°, 120°}", "{30°, 330°}", "{60°, 240°}"],
+                    answer: "{60°, 300°}",
+                    explanation: "cos bernilai positif di Kuadran I (60°) dan Kuadran IV (360° - 60° = 300°). Jadi HP = {60°, 300°}."
+                },
+                {
+                    q: "Nilai dari 2 sin 15° · cos 15° adalah...",
+                    svg: `<svg width="200" height="90" viewBox="0 0 200 90">
+                            <rect x="10" y="12" width="180" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="100" y="50" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">2 sin 15° cos 15°</text>
+                          </svg>`,
+                    options: ["1/2", "½√3", "½√2", "1"],
+                    answer: "1/2",
+                    explanation: "Gunakan identitas 2 sin α cos α = sin 2α. Maka 2 sin 15° cos 15° = sin(2 × 15°) = sin 30° = 1/2."
+                }
+            ],
+            grafik_fungsi: [
+                {
+                    q: "Tentukan amplitudo dari fungsi trigonometri f(x) = 4 sin(2x)!",
+                    svg: `<svg width="210" height="110" viewBox="0 0 210 110">
+                            <line x1="20" y1="55" x2="190" y2="55" stroke="#94A3B8" stroke-width="1.5"/>
+                            <path d="M20,55 Q42,15 62,55 T105,55 T148,55 T190,55" fill="none" stroke="#1E3A8A" stroke-width="2.5"/>
+                            <text x="105" y="102" text-anchor="middle" font-size="12" fill="#1E3A8A" font-weight="bold">f(x) = 4 sin(2x)</text>
+                          </svg>`,
+                    options: ["4", "2", "180°", "8"],
+                    answer: "4",
+                    explanation: "Pada bentuk umum y = A sin(kx), nilai amplitudo adalah |A|. Karena A = 4, maka amplitudonya adalah 4."
+                },
+                {
+                    q: "Berapakah periode dari grafik fungsi y = 3 cos(2x)?",
+                    svg: `<svg width="210" height="100" viewBox="0 0 210 100">
+                            <rect x="15" y="15" width="180" height="70" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="105" y="55" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">y = 3 cos(2x)</text>
+                          </svg>`,
+                    options: ["180°", "360°", "90°", "720°"],
+                    answer: "180°",
+                    explanation: "Periode fungsi sinus/kosinus = 360° / k. Di sini k = 2, sehingga periode = 360° / 2 = 180°."
+                },
+                {
+                    q: "Nilai maksimum dari fungsi f(x) = 5 sin(x) + 2 adalah...",
+                    svg: `<svg width="210" height="100" viewBox="0 0 210 100">
+                            <rect x="15" y="15" width="180" height="70" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+                            <text x="105" y="55" text-anchor="middle" font-size="15" fill="#14532D" font-weight="bold">f(x) = 5 sin(x) + 2</text>
+                          </svg>`,
+                    options: ["7", "5", "3", "-3"],
+                    answer: "7",
+                    explanation: "Nilai maksimum sin(x) adalah 1. Maka f_maks = 5(1) + 2 = 7."
+                },
+                {
+                    q: "Nilai minimum dari fungsi g(x) = 3 cos(2x) - 4 adalah...",
+                    svg: `<svg width="210" height="100" viewBox="0 0 210 100">
+                            <rect x="15" y="15" width="180" height="70" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+                            <text x="105" y="55" text-anchor="middle" font-size="15" fill="#9A3412" font-weight="bold">g(x) = 3 cos(2x) - 4</text>
+                          </svg>`,
+                    options: ["-7", "-1", "-4", "3"],
+                    answer: "-7",
+                    explanation: "Nilai minimum cos(2x) adalah -1. Maka g_min = 3(-1) - 4 = -3 - 4 = -7."
+                },
+                {
+                    q: "Jika suatu gelombang arus listrik AC dimodelkan dengan I(t) = 10 sin(3t), maka periode gelombang tersebut dalam radian adalah...",
+                    svg: `<svg width="210" height="100" viewBox="0 0 210 100">
+                            <rect x="15" y="15" width="180" height="70" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="105" y="55" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">I(t) = 10 sin(3t)</text>
+                          </svg>`,
+                    options: ["⅔π", "2π", "6π", "⅓π"],
+                    answer: "⅔π",
+                    explanation: "Dalam satuan radian, periode = 2π / k. Dengan k = 3, maka periodenya adalah 2π / 3 = ⅔π."
+                },
+                {
+                    q: "Grafik fungsi y = sin(x - 30°) merupakan hasil pergeseran grafik y = sin(x) sejauh...",
+                    svg: `<svg width="210" height="100" viewBox="0 0 210 100">
+                            <rect x="15" y="15" width="180" height="70" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                            <text x="105" y="55" text-anchor="middle" font-size="15" fill="#1E3A8A" font-weight="bold">y = sin(x - 30°)</text>
+                          </svg>`,
+                    options: ["30° ke kanan", "30° ke kiri", "30 satuan ke atas", "30 satuan ke bawah"],
+                    answer: "30° ke kanan",
+                    explanation: "Bentuk y = f(x - α) menggeser grafik sejauh α ke arah kanan (sumbu X positif). Jadi bergeser 30° ke kanan."
+                }
+            ],
+            pengayaan: [
+                {
+                    q: "[PENGAYAAN HOTS] Jika sin x + cos x = 1/2, maka berapakah nilai dari sin 2x?",
+                    svg: `<svg width="225" height="90" viewBox="0 0 225 90">
+                            <rect x="10" y="12" width="205" height="66" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+                            <text x="112" y="50" text-anchor="middle" font-size="14" fill="#5B21B6" font-weight="bold">sin x + cos x = 1/2 → sin 2x = ?</text>
+                          </svg>`,
+                    options: ["-3/4", "3/4", "1/4", "-1/4"],
+                    answer: "-3/4",
+                    explanation: "Kuadratkan kedua ruas: (sin x + cos x)² = (1/2)² → sin²x + 2 sin x cos x + cos²x = 1/4. Karena sin²x + cos²x = 1 dan 2 sin x cos x = sin 2x, maka 1 + sin 2x = 1/4 → sin 2x = 1/4 - 1 = -3/4."
+                },
+                {
+                    q: "[PENGAYAAN HOTS] Pada segitiga ABC lancip, diketahui cos A = 3/5 dan cos B = 5/13. Nilai dari cos C adalah...",
+                    svg: `<svg width="225" height="90" viewBox="0 0 225 90">
+                            <rect x="10" y="12" width="205" height="66" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+                            <text x="112" y="50" text-anchor="middle" font-size="14" fill="#5B21B6" font-weight="bold">ΔABC: A + B + C = 180°</text>
+                          </svg>`,
+                    options: ["33/65", "-33/65", "56/65", "16/65"],
+                    answer: "33/65",
+                    explanation: "C = 180° - (A + B), sehingga cos C = -cos(A + B) = -(cos A cos B - sin A sin B) = sin A sin B - cos A cos B. Dengan sin A = 4/5 dan sin B = 12/13, maka cos C = (4/5)(12/13) - (3/5)(5/13) = 48/65 - 15/65 = 33/65."
+                },
+                {
+                    q: "[PENGAYAAN HOTS] Nilai eksak dari tan 105° adalah...",
+                    svg: `<svg width="215" height="90" viewBox="0 0 215 90">
+                            <rect x="10" y="12" width="195" height="66" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+                            <text x="107" y="50" text-anchor="middle" font-size="14" fill="#5B21B6" font-weight="bold">tan 105° = tan(60° + 45°)</text>
+                          </svg>`,
+                    options: ["-2 - √3", "2 + √3", "√3 - 2", "2 - √3"],
+                    answer: "-2 - √3",
+                    explanation: "tan(60° + 45°) = (tan 60° + tan 45°) / (1 - tan 60° tan 45°) = (√3 + 1) / (1 - √3). Rasionalkan dengan mengalikan (1 + √3)/(1 + √3): (1 + 2√3 + 3) / (1 - 3) = (4 + 2√3) / -2 = -2 - √3."
+                },
+                {
+                    q: "[PENGAYAAN HOTS] Tentukan jumlah semua solusi persamaan 2 cos²x - 3 cos x + 1 = 0 pada interval 0° ≤ x ≤ 360°!",
+                    svg: `<svg width="235" height="90" viewBox="0 0 235 90">
+                            <rect x="10" y="12" width="215" height="66" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+                            <text x="117" y="50" text-anchor="middle" font-size="13" fill="#5B21B6" font-weight="bold">2 cos²x - 3 cos x + 1 = 0</text>
+                          </svg>`,
+                    options: ["720°", "360°", "420°", "660°"],
+                    answer: "720°",
+                    explanation: "Faktorkan: (2 cos x - 1)(cos x - 1) = 0 → cos x = 1/2 (x = 60°, 300°) atau cos x = 1 (x = 0°, 360°). Jumlah semua solusi = 0° + 60° + 300° + 360° = 720°."
+                },
+                {
+                    q: "[PENGAYAAN HOTS] Seorang pengamat melihat puncak menara dengan sudut elevasi 30°. Setelah berjalan mendekati menara sejauh 40 meter, sudut elevasinya menjadi 60°. Tinggi menara di atas mata pengamat adalah...",
+                    svg: `<svg width="225" height="110" viewBox="0 0 225 110">
+                            <line x1="20" y1="90" x2="185" y2="90" stroke="#64748B" stroke-width="2"/>
+                            <line x1="185" y1="20" x2="185" y2="90" stroke="#1E3A8A" stroke-width="3"/>
+                            <line x1="30" y1="90" x2="185" y2="20" stroke="#7C3AED" stroke-width="2"/>
+                            <line x1="115" y1="90" x2="185" y2="20" stroke="#F97316" stroke-width="2"/>
+                            <text x="52" y="84" font-size="10" fill="#7C3AED" font-weight="bold">30°</text>
+                            <text x="125" y="84" font-size="10" fill="#F97316" font-weight="bold">60°</text>
+                            <text x="65" y="102" font-size="10" fill="#1E293B" font-weight="bold">40 m</text>
+                          </svg>`,
+                    options: ["20√3 meter", "20 meter", "40√3 meter", "10√3 meter"],
+                    answer: "20√3 meter",
+                    explanation: "Misal jarak kedua ke menara = x, maka tinggi t = x tan 60° = x√3. Dari titik pertama: t = (x + 40) tan 30° = (x + 40)/√3. Samakan: x√3 = (x + 40)/√3 → 3x = x + 40 → 2x = 40 → x = 20 m. Jadi tinggi t = 20√3 meter."
+                },
+                {
+                    q: "[PENGAYAAN HOTS] Nilai maksimum dari fungsi f(x) = 3 sin x + 4 cos x + 2 adalah...",
+                    svg: `<svg width="225" height="90" viewBox="0 0 225 90">
+                            <rect x="10" y="12" width="205" height="66" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+                            <text x="112" y="50" text-anchor="middle" font-size="14" fill="#5B21B6" font-weight="bold">f(x) = 3 sin x + 4 cos x + 2</text>
+                          </svg>`,
+                    options: ["7", "9", "5", "6"],
+                    answer: "7",
+                    explanation: "Bentuk a sin x + b cos x memiliki nilai maksimum √(a² + b²). Untuk 3 sin x + 4 cos x, nilai maks = √(3² + 4²) = √25 = 5. Maka f_maks = 5 + 2 = 7."
+                }
+            ]
+        };
+
+        // --- LOAD / SAVE DATA BANK SOAL DI LOCALSTORAGE ---
+        let questionBank = {};
+
+        function loadQuestionBank() {
+            const saved = localStorage.getItem("trigonoquiz_bank_v1");
+            if (saved) {
+                try {
+                    questionBank = JSON.parse(saved);
+                    Object.keys(defaultQuestionBank).forEach(k => {
+                        if (!questionBank[k]) {
+                            questionBank[k] = JSON.parse(JSON.stringify(defaultQuestionBank[k]));
+                        }
+                    });
+                } catch (e) {
+                    questionBank = JSON.parse(JSON.stringify(defaultQuestionBank));
+                }
+            } else {
+                questionBank = JSON.parse(JSON.stringify(defaultQuestionBank));
+            }
+        }
+
+        function persistQuestionBank() {
+            localStorage.setItem("trigonoquiz_bank_v1", JSON.stringify(questionBank));
+        }
+
+        function resetDefaultQuestions() {
+            if (confirm("Kembalikan seluruh bank soal ke pengaturan bawaan? Soal yang ditambahkan/diubah secara manual akan dihapus.")) {
+                questionBank = JSON.parse(JSON.stringify(defaultQuestionBank));
+                persistQuestionBank();
+                renderCrudList();
+                renderTopicCards();
+                alert("Bank soal berhasil dikembalikan ke pengaturan awal.");
+            }
+        }
+
+        // --- VARIABEL STATE APLIKASI ---
+        let studentName = "";
+        let studentSchoolType = "SMA";
+        let studentGrade = "Kelas X";
+        let studentRombel = "";
+        let selectedLevel = "mudah";
+        let currentTopic = "";
+        let activeQuestions = [];
+        let currentIndex = 0;
+        let scoreCount = 0;
+        let timerInterval = null;
+        let timeLeft = 180;
+
+        const levelTimes = {
+            mudah: 180,
+            sedang: 120,
+            susah: 60
+        };
+
+        const topicNames = {
+            segitiga: "Segitiga Siku-siku",
+            istimewa: "Sudut Istimewa & Radian",
+            kuadran: "Relasi Sudut & Kuadran",
+            aturan_segitiga: "Aturan Sinus, Kosinus & Luas",
+            jumlah_selisih: "Rumus Jumlah & Selisih Sudut",
+            identitas_persamaan: "Identitas & Persamaan",
+            grafik_fungsi: "Grafik & Fungsi Trigonometri",
+            pengayaan: "Soal Pengayaan HOTS"
+        };
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function renderTopicCards() {
+            const container = document.getElementById('topic-cards-container');
+            container.innerHTML = '';
+
+            modulesMeta.forEach(mod => {
+                const qCount = questionBank[mod.key] ? questionBank[mod.key].length : 0;
+                const card = document.createElement('div');
+                card.className = 'topic-card' + (mod.isEnrichment ? ' enrichment-card' : '');
+                card.onclick = () => startQuiz(mod.key);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="topic-header-row">
+                            <span class="topic-badge ${mod.isEnrichment ? 'purple' : ''}">${mod.badge}</span>
+                            <span class="grade-tag">${mod.grade}</span>
+                        </div>
+                        <h3>${mod.title}</h3>
+                        <p>${mod.desc}</p>
+                    </div>
+                    <div class="topic-footer-meta" style="${mod.isEnrichment ? 'color:var(--purple);' : ''}">
+                        📚 Tersedia ${qCount} Butir Soal →
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function goToTopics() {
+            const nameInput = document.getElementById('student-name').value.trim();
+            if (!nameInput) {
+                alert("Silakan masukkan nama lengkap terlebih dahulu!");
+                document.getElementById('student-name').focus();
+                return;
+            }
+            studentName = nameInput;
+            studentSchoolType = document.getElementById('student-school-type').value;
+            studentGrade = document.getElementById('student-grade').value;
+            studentRombel = document.getElementById('student-rombel').value.trim();
+
+            const identityLabel = studentRombel 
+                ? `${studentSchoolType} • ${studentGrade} (${studentRombel})`
+                : `${studentSchoolType} • ${studentGrade}`;
+
+            document.getElementById('display-name').textContent = studentName;
+            document.getElementById('display-identity').textContent = identityLabel;
+            renderTopicCards();
+            switchScreen('screen-topics');
+        }
+
+        function openSummaryPage() {
+            switchScreen('screen-summary');
+        }
+
+        // --- FUNGSI CRUD (TAMBAH, EDIT, HAPUS SOAL) ---
+        function openManageQuestions() {
+            closeQuestionForm();
+            renderCrudList();
+            switchScreen('screen-manage');
+        }
+
+        function renderCrudList() {
+            const topicKey = document.getElementById('manage-topic-select').value;
+            const listContainer = document.getElementById('crud-questions-list');
+            const headerEl = document.getElementById('crud-list-header');
+            const list = questionBank[topicKey] || [];
+
+            headerEl.textContent = `Daftar Soal Tersimpan (${list.length} Soal):`;
+            listContainer.innerHTML = '';
+
+            if (list.length === 0) {
+                listContainer.innerHTML = `<p style="color:var(--text-muted); font-size:0.88rem; padding:12px 0;">Belum ada soal pada modul ini. Klik "+ Tambah Soal Baru" untuk menambahkan.</p>`;
+                return;
+            }
+
+            list.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'crud-list-item';
+                div.innerHTML = `
+                    <div class="crud-item-header">
+                        <span class="topic-badge">Soal #${idx + 1}</span>
+                        <div class="crud-actions">
+                            <button class="btn btn-outline btn-sm" onclick="editQuestion('${topicKey}', ${idx})">✏️ Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteQuestion('${topicKey}', ${idx})">🗑️ Hapus</button>
+                        </div>
+                    </div>
+                    <div class="crud-item-q">${item.q}</div>
+                    <div class="crud-item-ans">✓ Kunci Jawaban: ${item.answer}</div>
+                    <div style="font-size:0.78rem; color:var(--text-muted); margin-top:4px;">Pembahasan: ${item.explanation}</div>
+                `;
+                listContainer.appendChild(div);
+            });
+        }
+
+        function openQuestionForm() {
+            document.getElementById('crud-form-title').textContent = "Tambah Soal Baru";
+            document.getElementById('edit-question-index').value = "-1";
+            document.getElementById('input-q-text').value = "";
+            document.getElementById('input-opt-a').value = "";
+            document.getElementById('input-opt-b').value = "";
+            document.getElementById('input-opt-c').value = "";
+            document.getElementById('input-opt-d').value = "";
+            document.getElementById('input-q-exp').value = "";
+            document.getElementById('crud-form-box').style.display = "block";
+            document.getElementById('input-q-text').focus();
+        }
+
+        function closeQuestionForm() {
+            document.getElementById('crud-form-box').style.display = "none";
+        }
+
+        function editQuestion(topicKey, index) {
+            const item = questionBank[topicKey][index];
+            document.getElementById('crud-form-title').textContent = `Edit Soal #${index + 1}`;
+            document.getElementById('edit-question-index').value = index;
+            document.getElementById('input-q-text').value = item.q;
+
+            const distractors = item.options.filter(opt => opt !== item.answer);
+            document.getElementById('input-opt-a').value = item.answer;
+            document.getElementById('input-opt-b').value = distractors[0] || "";
+            document.getElementById('input-opt-c').value = distractors[1] || "";
+            document.getElementById('input-opt-d').value = distractors[2] || "";
+            document.getElementById('input-q-exp').value = item.explanation;
+
+            document.getElementById('crud-form-box').style.display = "block";
+            document.getElementById('crud-form-box').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function saveQuestion() {
+            const topicKey = document.getElementById('manage-topic-select').value;
+            const editIdx = parseInt(document.getElementById('edit-question-index').value, 10);
+
+            const qText = document.getElementById('input-q-text').value.trim();
+            const optA = document.getElementById('input-opt-a').value.trim();
+            const optB = document.getElementById('input-opt-b').value.trim();
+            const optC = document.getElementById('input-opt-c').value.trim();
+            const optD = document.getElementById('input-opt-d').value.trim();
+            const expText = document.getElementById('input-q-exp').value.trim();
+
+            if (!qText || !optA || !optB || !optC || !optD || !expText) {
+                alert("Harap lengkapi seluruh kolom pertanyaan, keempat pilihan jawaban, dan pembahasan!");
+                return;
+            }
+
+            const defaultSvg = `<svg width="215" height="86" viewBox="0 0 215 86">
+                                  <rect x="10" y="10" width="195" height="66" rx="10" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2"/>
+                                  <text x="107" y="48" text-anchor="middle" font-size="13" fill="#1E3A8A" font-weight="bold">Soal Latihan Trigonometri</text>
+                                </svg>`;
+
+            if (editIdx >= 0) {
+                const existingSvg = questionBank[topicKey][editIdx].svg || defaultSvg;
+                questionBank[topicKey][editIdx] = {
+                    q: qText,
+                    svg: existingSvg,
+                    options: [optA, optB, optC, optD],
+                    answer: optA,
+                    explanation: expText
+                };
+            } else {
+                questionBank[topicKey].push({
+                    q: qText,
+                    svg: defaultSvg,
+                    options: [optA, optB, optC, optD],
+                    answer: optA,
+                    explanation: expText
+                });
+            }
+
+            persistQuestionBank();
+            closeQuestionForm();
+            renderCrudList();
+            renderTopicCards();
+            alert(editIdx >= 0 ? "Soal berhasil diperbarui!" : "Soal baru berhasil ditambahkan!");
+        }
+
+        function deleteQuestion(topicKey, index) {
+            if (questionBank[topicKey].length <= 1) {
+                alert("Minimal harus tersisa 1 soal dalam setiap modul agar kuis tetap dapat dijalankan.");
+                return;
+            }
+            if (confirm(`Apakah Anda yakin ingin menghapus Soal #${index + 1} ini?`)) {
+                questionBank[topicKey].splice(index, 1);
+                persistQuestionBank();
+                renderCrudList();
+                renderTopicCards();
+            }
+        }
+
+        // --- LOGIKA KUIS ---
+        function selectLevel(level, btnElement) {
+            selectedLevel = level;
+            document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
+
+        function startQuiz(topicKey) {
+            const list = questionBank[topicKey] || [];
+            if (list.length === 0) {
+                alert("Belum ada soal pada modul ini. Silakan tambahkan soal melalui menu Kelola Bank Soal.");
+                return;
+            }
+
+            currentTopic = topicKey;
+            currentIndex = 0;
+            scoreCount = 0;
+
+            document.getElementById('topic-summary-box').innerHTML = topicSummaries[topicKey];
+
+            activeQuestions = shuffleArray(list).map(item => ({
+                ...item,
+                shuffledOptions: shuffleArray(item.options)
+            }));
+
+            switchScreen('screen-quiz');
+            renderQuestion();
+        }
+
+        function restartCurrentQuiz() {
+            startQuiz(currentTopic);
+        }
+
+        function renderQuestion() {
+            clearInterval(timerInterval);
+            const qData = activeQuestions[currentIndex];
+            const total = activeQuestions.length;
+
+            document.getElementById('question-counter').textContent = `Soal ${currentIndex + 1} dari ${total}`;
+            document.getElementById('progress-bar').style.width = `${(currentIndex / total) * 100}%`;
+
+            document.getElementById('visual-container').innerHTML = qData.svg;
+            document.getElementById('question-text').textContent = qData.q;
+
+            const feedbackBox = document.getElementById('feedback-box');
+            feedbackBox.style.display = 'none';
+            feedbackBox.className = 'feedback-box';
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            const prefixes = ['A', 'B', 'C', 'D'];
+
+            qData.shuffledOptions.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<span class="option-prefix">${prefixes[idx]}</span> <span>${optText}</span>`;
+                btn.onclick = () => checkAnswer(optText, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.textContent = (currentIndex === total - 1) ? "Lihat Hasil Akhir →" : "Soal Berikutnya →";
+
+            startTimer();
+        }
+
+        function startTimer() {
+            timeLeft = levelTimes[selectedLevel];
+            const timerText = document.getElementById('timer-text');
+            const timerBox = document.getElementById('timer-box');
+
+            timerText.textContent = formatTime(timeLeft);
+            timerBox.classList.remove('warning');
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerText.textContent = formatTime(timeLeft);
+
+                if (timeLeft <= 15) {
+                    timerBox.classList.add('warning');
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    handleTimeOut();
+                }
+            }, 1000);
+        }
+
+        function handleTimeOut() {
+            const qData = activeQuestions[currentIndex];
+            const allBtns = document.querySelectorAll('.option-btn');
+
+            allBtns.forEach(btn => {
+                btn.disabled = true;
+                const btnVal = btn.querySelector('span:last-child').textContent;
+                if (btnVal === qData.answer) {
+                    btn.classList.add('correct');
+                }
+            });
+
+            showFeedback(false, "⏱ Waktu Habis! Jawaban yang benar adalah: " + qData.answer, qData.explanation);
+        }
+
+        function checkAnswer(selectedOption, clickedBtn) {
+            clearInterval(timerInterval);
+            const qData = activeQuestions[currentIndex];
+            const isCorrect = (selectedOption === qData.answer);
+            const allBtns = document.querySelectorAll('.option-btn');
+
+            allBtns.forEach(btn => {
+                btn.disabled = true;
+                const btnVal = btn.querySelector('span:last-child').textContent;
+                if (btnVal === qData.answer) {
+                    btn.classList.add('correct');
+                }
+            });
+
+            if (isCorrect) {
+                scoreCount++;
+                clickedBtn.classList.add('correct');
+                showFeedback(true, "✓ Jawaban Tepat!", qData.explanation);
+            } else {
+                clickedBtn.classList.add('wrong');
+                showFeedback(false, `✕ Kurang Tepat. Jawaban benar: ${qData.answer}`, qData.explanation);
+            }
+        }
+
+        function showFeedback(isCorrect, titleText, explanationText) {
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackExp = document.getElementById('feedback-explanation');
+
+            feedbackBox.className = 'feedback-box ' + (isCorrect ? 'correct' : 'wrong');
+            feedbackTitle.textContent = titleText;
+            feedbackExp.innerHTML = `<strong>Pembahasan:</strong> ${explanationText}`;
+            feedbackBox.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < activeQuestions.length) {
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('progress-bar').style.width = '100%';
+            const total = activeQuestions.length;
+            const wrongCount = total - scoreCount;
+            const finalScore = Math.round((scoreCount / total) * 100);
+
+            const identityLabel = studentRombel 
+                ? `${studentName} • ${studentSchoolType} ${studentGrade} (${studentRombel})`
+                : `${studentName} • ${studentSchoolType} ${studentGrade}`;
+
+            document.getElementById('result-topic-badge').textContent = `${topicNames[currentTopic]} (${selectedLevel.toUpperCase()})`;
+            document.getElementById('result-student-info').textContent = identityLabel;
+            document.getElementById('final-score').textContent = finalScore;
+            document.getElementById('stat-correct').textContent = scoreCount;
+            document.getElementById('stat-wrong').textContent = wrongCount;
+            document.getElementById('stat-accuracy').textContent = `${finalScore}%`;
+
+            const predicateEl = document.getElementById('result-predicate');
+            const greetingEl = document.getElementById('result-greeting');
+
+            if (finalScore >= 80) {
+                greetingEl.textContent = "Luar Biasa, Tuntas!";
+                predicateEl.textContent = "Predikat: Sangat Baik (Melampaui KKTP)";
+                predicateEl.style.color = "var(--success)";
+            } else if (finalScore >= 60) {
+                greetingEl.textContent = "Cukup Baik, Terus Berlatih!";
+                predicateEl.textContent = "Predikat: Cukup (Perlu Sedikit Latihan Lagi)";
+                predicateEl.style.color = "var(--accent)";
+            } else {
+                greetingEl.textContent = "Jangan Menyerah, Ayo Coba Lagi!";
+                predicateEl.textContent = "Predikat: Perlu Bimbingan (Ulangi Latihan)";
+                predicateEl.style.color = "var(--danger)";
+            }
+
+            switchScreen('screen-result');
+        }
+
+        // Inisialisasi awal
+        loadQuestionBank();
+    </script>
+</body>
+</html>
